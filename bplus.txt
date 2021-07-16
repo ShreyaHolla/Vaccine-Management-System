@@ -1,4 +1,8 @@
-1|SHREYA|500|MD|9421250159
-20|ADI|300|MBBS|89273
-20|adi|2|panaji|92345
-3|vangu|1|merces|23456
+1|Mary|2|Panaji|9421
+2|Tom|1|Merces|8743
+3|Harry|2|Panaji|5678
+4|Tim|1|OldGoa|1234
+5|Lia|2|123|1234
+6|mom|2|asdf|1234
+10|weq|1|12345|1234
+
