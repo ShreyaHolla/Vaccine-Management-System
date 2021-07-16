@@ -8,7 +8,7 @@ import java.io.IOException;
 import java.util.Scanner;
 
 class records{
-    static String name,fee,spec,phone,keyf;
+    static String name,dose,addr,phone,keyf;
 }
 class node{
     int [] a=new int[5];
@@ -83,7 +83,7 @@ class btree
             if (leaf.a[i] == key)
             {
                 flg = 1;
-                System.out.print("The DOCTOR ID ");
+                System.out.print("The Patient ID: ");
                 System.out.print(key);
                 System.out.print(" Exists in the B-Tree at the level ");
                 System.out.print(level);
@@ -242,7 +242,7 @@ public class bplus {
         return no1;
     }
 
-    static String name,fee,spec,phone,count;
+    static String name,dose,addr,phone,count;
     static records [] recs=new records[100];
 
 
@@ -263,8 +263,8 @@ public class bplus {
             String [] st = lineRead.split("\\|");
             recs[i].keyf=st[0];
             recs[i].name=st[1];
-            recs[i].fee=st[2];
-            recs[i].spec=st[3];
+            recs[i].dose=st[2];
+            recs[i].addr=st[3];
             recs[i].phone=st[4];
 
             rkey=Integer.valueOf(recs[i].keyf);
@@ -279,6 +279,7 @@ public class bplus {
             System.out.print("2.Search for record details\n");
             System.out.print("3.Display Records\n");
             System.out.print("4. Exit \n");
+            System.out.println("****************************************************************");
             Scanner sc=new Scanner(System.in);
             choice=sc.nextInt();
             switch(choice)
@@ -290,9 +291,9 @@ public class bplus {
                     System.out.print("Enter the Patients Name: ");
                     name=sc.next();
                     System.out.print("Enter the no of doses: ");
-                    fee=sc.next();
+                    dose=sc.next();
                     System.out.print("Enter the Address: ");
-                    spec=sc.next();
+                    addr=sc.next();
                     System.out.print("Enter phone: ");
                     phone=sc.next();
 
@@ -303,9 +304,9 @@ public class bplus {
                         fw.write("|");
                         fw.write(name);
                         fw.write("|");
-                        fw.write(fee);
+                        fw.write(dose);
                         fw.write("|");
-                        fw.write(spec);
+                        fw.write(addr);
                         fw.write("|");
                         fw.write(phone);
 
@@ -331,8 +332,8 @@ public class bplus {
                         String [] t=lineRead.split("\\|");
                         recs[i].keyf=t[0];
                         recs[i].name=t[1];
-                        recs[i].fee=t[2];
-                        recs[i].spec=t[3];
+                        recs[i].dose=t[2];
+                        recs[i].addr=t[3];
                         recs[i].phone=t[4];
 
                         rkey=Integer.valueOf(recs[i].keyf);
@@ -340,15 +341,15 @@ public class bplus {
                         if(key==rkey)
                         {
                             System.out.println("Patient Name: "+recs[i].name);
-                            System.out.println("Dose No: "+recs[i].fee);
-                            System.out.println("Address: "+recs[i].spec);
+                            System.out.println("Dose No: "+recs[i].dose);
+                            System.out.println("Address: "+recs[i].addr);
                             System.out.println("Phone No: "+recs[i].phone+"\n\n");
 
                         }
                     }
                     bbr.close();
                     break;
-                case 3: System.out.println("PATIENT ID\tPATIENT NAME\tDOSAGE NO\tADDRESS\tPHONE\n");
+                case 3: System.out.println("ID\tPATIENT \tDOSE\tADDRESS\tCONTACT\n");
                     bbr=new BufferedReader(new FileReader("/Users/shreya/Desktop/bplus.txt"));
                     for(int i=0;i<=no;i++)
                     {
@@ -356,11 +357,11 @@ public class bplus {
                         String [] t=lineRead.split("\\|");
                         recs[i].keyf=t[0];
                         recs[i].name=t[1];
-                        recs[i].fee=t[2];
-                        recs[i].spec=t[3];
+                        recs[i].dose=t[2];
+                        recs[i].addr=t[3];
                         recs[i].phone=t[4];
 
-                        System.out.println(recs[i].keyf+"\t\t"+recs[i].name+"\t\t"+recs[i].fee+"\t\t"+recs[i].spec+"\t\t"+recs[i].phone+"\t\t\t");
+                        System.out.println(recs[i].keyf+"\t\t"+recs[i].name+"\t\t\t\t"+recs[i].dose+"\t\t"+recs[i].addr+"\t\t\t"+recs[i].phone+"\t\t\t");
                     }
                     bbr.close();
                     break;
